@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet  # this manages identical pods
+metadata:
+  name: app1-rs
+  namespace: app1-ns
+  labels:
+    environment: dev
+    app: app1
+spec:    # replica specs
+  replicas: 3 
+  selector: 
+      matchLabels:
+        app: app1
+  template:
+    metadata:
+      labels: 
+        app: app1  # pod label
+    spec: 
+      containers: 
+        - name: nginx
+          image: nginx:latest
+
+     
