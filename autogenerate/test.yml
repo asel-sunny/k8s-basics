@@ -1,0 +1,18 @@
+# kubectl run testpod --image=nginx:latest --namespace default --labels app=nginx --dry-run=client -o yaml > test.yml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    app: nginx
+  name: testpod
+  namespace: default
+spec:
+  containers:
+  - image: nginx:latest
+    name: testpod
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
